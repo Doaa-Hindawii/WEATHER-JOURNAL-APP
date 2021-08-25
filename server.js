@@ -32,31 +32,34 @@ const port = 8000;
 // Spin up the server
 const server = app.listen(port, listening);
 
-//index page
-app.get("/", (req, res) => {
-    res.send("index");
-  });
-  
-  //post data from api (current weather data)
-  app.post("/", (req, res) => {
-    let data = req.body;
-    projectData.current_weather = data.value;
-    projectData.feelings = data.user_feelings;
-  });
-  
-  //post data from api (for the 3 hour forcast)
-  app.post("/future_weather", (req, res) => {
-    let data = req.body;
-    projectData.future_weather = data;
-  });
-  
-  //send data from the stored api data.
-  app.get("/weather", (req, res) => {
-    res.send([projectData]);
-  });
-
-  // Callback to debug
-function listening() {
+// Callback to debug
+  function listening() {
     console.log("server running"); 
     console.log(`running on localhost: ${port}`);
 };
+
+//index page
+app.get("/", (req, res) => {
+    res.send("index");
+});
+
+//send data from the stored api data.
+app.get("/weather", (req, res) => {
+    res.send([projectData]);
+});
+
+// POST Route: save weather data and mood
+// Initialize 'Save' route with a callback function to Save data
+app.post('/Save', Save);
+
+function Save(req, res) {
+    Entry = {
+        temperature: req.body.temperature,
+        date: req.body.date,
+        userResponse: req.body.userResponse
+    };
+    projectData.last = projectData.last + 1;
+    projectData[projectData.last] = Entry;
+    res.send(projectData);
+}
+  
