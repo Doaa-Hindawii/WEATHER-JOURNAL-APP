@@ -1,5 +1,5 @@
 # Weather-journal-app
-The second project of Udacity FWD scholarShip. 
+The second project of Udacity FWD Scholarship. 
 
 ## Overview
 This project was about creating an asynchronous web app that uses OpenWeatherMap API and user data to dynamically update the UI.
