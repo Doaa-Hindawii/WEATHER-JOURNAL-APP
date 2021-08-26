@@ -1,16 +1,16 @@
 /* Global Variables */
 
-// Base URL and My API Key from OpenWeatherMap API
-const BaseURL = 'https://api.openweathermap.org/data/2.5/weather?units=metric&zip=';
-const MyApiKey ='&appid=173ff8f535f3ee441c0f90792e8acbdb';
-
-// Event listener callback function
-document.getElementById('generate').addEventListener('click', performAction);
-function performAction(e) {
+// Base URL 
+const BaseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
+//forcast data api url
+const weatherApi = "https://api.openweathermap.org/data/2.5/forecast?zip=";
+//My API Key from OpenWeatherMap API
+const MyApiKey ="&APPID=173ff8f535f3ee441c0f90792e8acbdb";
 
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+
 
 //get the user zipcode input
 const userInfo = () => {
@@ -19,21 +19,25 @@ const userInfo = () => {
   if (isNaN(zip)) {
     error("InCorrect ZipCode!");
   } else if (zip == undefined) {
-    error("Please, type valid ZipCode!");
+    error("Please, type a valid ZipCode!");
   } else {
     if (errors.length > 0) {
       errors.forEach(element => element.parentNode.removeChild(element));
     }
     getWeather(zip, document.querySelector("#feelings").value);
+    
   }
 };
 
+/* Function to GET Web API Data*/
 //getWeather -> fetch data from the api and post the data to the server
 const getWeather = async (zip, user_feelings) => {
   let [current_weather, future_weather] = await Promise.all([
-    fetch(BaseURL + zip + MyApiKey)
+    fetch(BaseURL + zip + MyApiKey),
+    fetch(weatherApi + zip + MyApiKey)
   ]);
 
+   // add data to POST request
   current_weather.json().then(value => {
     postData("/", { value, user_feelings });
   });
@@ -44,6 +48,7 @@ const getWeather = async (zip, user_feelings) => {
   });
 };
 
+/* Function to POST data */
 //post data in json format in cors mode to the server
 const postData = async (url = "", data) => {
   const res = await fetch(url, {
@@ -121,6 +126,7 @@ const weather_append = weather_data => {
   }
 };
 
+// GET ROUTE II
 //gets weather data from the server and dynamically updates the UI
 const add_server_data = async () => {
   const feel_div_children = document.querySelector(".feel").children;
@@ -154,5 +160,6 @@ const add_server_data = async () => {
 
 //listen for a click on the search button
 const search = document
-  .querySelector("#generate")
-  .addEventListener("click", userInfo);
+.querySelector("#generate")
+.addEventListener("click", userInfo);
+
