@@ -1,111 +1,222 @@
-body{
-    background: #fffff8;
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  body,
+  html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  body {
+    background: #fff;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-#app{
+  }
+  
+  #app {
+    position: relative;
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-template-rows: 5% 25% 40% 25%;
     /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
+    height: 100%;
+    grid-template-columns: 100%;
+    background: linear-gradient(#f5fcff, #7a99f0);
+    color: #fff;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
+    font-family: "Oswald", sans-serif;
+  }
+  
+  #Weather {
+    text-align: center;
+  }
 
-.holder{
-
-}
-
-.entry{
-    background: rgba(59, 74, 107, .4);
-}
-
-#entryHolder{
-
-}
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
+  .entry {
+    background: rgba(254, 254, 254, 0.308);
+  }
+  
+  .entryHolder {
+    display: inline-block;
+    width: 20%;
+    height: 100px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .zip {
+    text-align: center;
+    color: #000;
+  }
+  label[for="zip"],
+  #zip {
+    position: relative;
+    width: 50%;
+    left: 25%;
+  }
+  
+  #feelings {
+    width: 50%;
+    height: 60px;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  #zip {
+    background-color: #fff;
+    border: #4e576e solid 2px;
+    border-radius: 20px;
+    text-align: center;
+    color: #000;
+  }
+  
+  .feel {
+    color: #000;
+    text-align: center;
+  }
+  
+  .city h2 {
+    font-size: 3em;
+  }
+  #current_weather_icon {
+    width: 12rem;
+    height: 12rem;
+  }
+  
+  .weather__type,
+  .current__temp,
+  .feel__like,
+  .user_feelings,
+  .error {
+    font-size: 2em;
+  }
+  
+  .error {
+    color: red;
+  }
+  .date {
+    font-size: 2rem;
+    color: #000;
+  }
+  
+  .temp {
+    font-size: 2rem;
+    color: #000;
+  }
+  
+  .headline {
+    color: #2f3a55;
+    font-size: 3rem;
+  }
+  .title {
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  /*  Basic Styling To Override Default For Basic HTML Elements */
+  label {
+    display: block;
     font-size: 27px;
-}
-
-input{
-    display:block;
+  }
+  
+  input {
+    display: block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    background: #b4d7e0;
+    color: #000;
+    font-size: 25px;
+    font-family: "Oswald", sans-serif;
     border: none;
-}
-
-button{
+  }
+  
+  button {
     width: 400px;
     height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
+    background: #000;
+    color: #fff;
     font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
+    font-family: "Oswald", sans-serif;
     box-shadow: 2px 4px 5px #444;
-}
-h1{
+    border-radius: 20px;
+    margin-top: 10px;
+    border: none;
+    font-family: var(--font-family);
+    padding: 1em;
+    border-radius: var(--border-radius);
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: var(--color-secondary-dark);
+  }
+  
+  button:hover {
+    background: var(--color-secondary);
+    border-style: solid;
+    border-width: var(--border-width);
+    border-color: var(--color-secondary-dark);
+  }
+  h1 {
     font-size: 36px;
-}
-
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
+  }
+  
+  /* Reset style for HTML element on active to have no border*/
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
     outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
+  }
+  /* Style for Placeholder Text*/
+  ::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: #000;
+    font-family: "Oswald", sans-serif;
+  }
   
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #000;
+    font-family: "Oswald", sans-serif;
+  }
   
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000;
+    font-family: "Oswald", sans-serif;
+  }
+  
+  #feelings_area {
+    width: 100%;
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .headline {
+      font-size: 2rem;
+    }
+    button {
+      width: 200px;
+      height: 50px;
+      font-size: 20px;
+    }
+    #zip {
+      width: 25%;
+      left: 37%;
+    }
+    .city h2 {
+      font-size: 1.5em;
+    }
+    .weather__type,
+    .current__temp,
+    .feel__like {
+      font-size: 1em;
+    }
+    #current_weather_icon {
+      width: 5rem;
+      height: 5rem;
+    }
+    #app {
+      grid-template-rows: 5% 25% 35% 32%;
+    }
+  }
+  
