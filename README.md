@@ -5,4 +5,4 @@ The second project of Udacity FWD scholarShip.
 This project was about creating an asynchronous web app that uses OpenWeatherMap API and user data to dynamically update the UI.
 
 ## Result
-![screenshot](image/ScreenShot.jpeg)
+![screenshot](image/Web-Screen.jpeg)
