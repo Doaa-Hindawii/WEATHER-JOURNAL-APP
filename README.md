@@ -1,4 +1,4 @@
-# Weather-journal-app ⛅:
+# Weather-journal-app ⛅
 The second project of Udacity FWD Scholarship. 
 
 #### What I used: HTML, CSS, Javascript
